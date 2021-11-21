@@ -39,7 +39,7 @@ class CampaignService {
         return campaign;
     }
 
-    public deleteCampaign = async (id: number): Promise<IDeleteCampaignResult> => {
+    public deleteCampaign = async (id: number): Promise<any> => {
         const result = await this.campaignRepository.deleteCampaign(id);
         return result;
     }

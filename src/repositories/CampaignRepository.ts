@@ -1,6 +1,6 @@
 import { EntityRepository, getManager, QueryBuilder, Repository, SelectQueryBuilder } from "typeorm";
 import {Campaign} from "../entity/Campaign";
-import { NotFoundError } from "../exceptions/NotFoundException";
+import { NotFoundException } from "../exceptions/NotFoundException";
 import IPaginationFilter from "../services/interfaces/IPaginationFilter";
 
 @EntityRepository(Campaign)
@@ -25,7 +25,7 @@ export class CampaignRepository extends Repository<Campaign>{
     public async updateCampaign(id: number, data: Partial<Campaign>): Promise<Campaign> {
         const campaign = await this.findOne(id);
 
-        if (!campaign) throw new NotFoundError('Campanha não encontrada');
+        if (!campaign) throw new NotFoundException('Campanha não encontrada');
 
         campaign.beginDate = data.beginDate;
         campaign.endDate = data.endDate;

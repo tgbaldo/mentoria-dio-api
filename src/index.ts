@@ -9,7 +9,7 @@ import { DB_HOST, DB_PORT, DB_USERNAME, DB_PASSWORD, DB_NAME } from './settings'
         username: DB_USERNAME,
         password: DB_PASSWORD,
         database: DB_NAME,
-        entities: ["./entity/*.{js,ts}"],
+        entities: [__dirname + "/entity/*.{js,ts}"],
     });
     import('./app')
 })();
